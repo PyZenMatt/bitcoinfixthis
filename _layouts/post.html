@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article class="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="post-title">{{ page.title }}</h1>
+                <p class="post-meta">
+                    Pubblicato il {{ page.date | date: "%d %B %Y" }}
+                    {% if page.categories %}
+                        in
+                        {% for category in page.categories %}
+                            <a href="/categories/{{ category }}" class="post-category">{{ category }}</a>{% if forloop.last == false %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </p>
+                <hr>
+                <div class="post-content">
+                    {{ content }}
+                </div>
+                <div class="post-tags">
+                    {% if page.tags %}
+                        <strong>Tag:</strong>
+                        {% for tag in page.tags %}
+                            <a href="/tags/{{ tag }}" class="post-tag">#{{ tag }}</a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,26 @@
+---
+layout: default
+title: "Blog"
+---
+<section class="blog-archive">
+    <div class="container">
+        <h1 class="archive-title">Blog</h1>
+        <div class="row">
+            {% for post in site.posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card wallet_box" id="wa_hover">
+                        {% if post.image %}
+                        <img class="card-img-top" src="{{ post.image | prepend: site.baseurl }}" alt="{{ post.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title wallet_box h3"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h5>
+                            <p class="card-text wallet_box p">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                            <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-custom read_more">Leggi di più</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
